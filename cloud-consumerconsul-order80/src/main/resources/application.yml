@@ -1,0 +1,21 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: consul-order-service
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        enabled: true
+        # 使用 consul 服务器 IP, 而不是 hostname, 需要搭配 prefer-ip-address 属性
+        ip-address: 127.0.0.1
+        # 在注册时使用 consul IP, 而不是 hostname
+        prefer-ip-address: true
+        health-check-url: http://${spring.cloud.consul.host}:${server.port}/actuator/health
+        service-name: ${spring.application.name}
+
+
+
