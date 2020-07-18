@@ -13,4 +13,7 @@ public interface ConsumerSerice {
    public CommonResult getPaymentById(@PathVariable("id") Long id);
     @GetMapping(value = "/payment/fegin/timeout")
     public String timeout();
+    @GetMapping(value = "/payment/fackball")
+    public String fackball(Integer id);
+
 }

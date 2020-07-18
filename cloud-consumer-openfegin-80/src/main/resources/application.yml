@@ -9,6 +9,8 @@ eureka:
 spring:
   application:
     name: cloud-consumer-order
+  main:
+    allow-bean-definition-overriding: true
 
 #设置feign客户端超时时间（OpenFeign默认支持ribbon）
 ribbon:
@@ -20,3 +22,9 @@ ribbon:
 logging:
   level:
     com.jtr.service.ConsumerSerice: debug
+
+#服务熔断要开启注解
+feign:
+  hystrix:
+    enabled: true
+

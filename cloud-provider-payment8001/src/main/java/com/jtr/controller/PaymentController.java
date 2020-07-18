@@ -3,6 +3,8 @@ package com.jtr.controller;
 import com.jtr.entriy.CommonResult;
 import com.jtr.entriy.Payment;
 import com.jtr.service.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -63,6 +65,32 @@ public class PaymentController {
             return serverport;
         }
     }
+    /*设置降级方法和熔断时间
+    *
+    * 调用方法的参数类表应该和熔断方法的参数类表相同，如果不同
+    *com.netflix.hystrix.contrib.javanica.exception.FallbackDefinitionException:
+    *
+    * */
+    @HystrixCommand(fallbackMethod = "paymentInfo_TimeoutHandler",
+            commandProperties={
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",
+                    value = "3000")
+    }
+    )
+    @GetMapping(value = "/payment/fackball")
+    public String fackball(Integer id){
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+            return Thread.currentThread().getName()+"成功完成耗时";
+
+    }
+    public String paymentInfo_TimeoutHandler(Integer id) {
+        return "/(ToT)/调用支付接口超时或异常、\t" + "\t当前线程池名字" + Thread.currentThread().getName();
+    }
+
 }
 
 
