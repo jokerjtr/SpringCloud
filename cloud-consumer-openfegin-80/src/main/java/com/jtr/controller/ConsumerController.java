@@ -17,4 +17,8 @@ public class ConsumerController {
     public CommonResult getPaymentById(@PathVariable("id") Long id){
          return consumerSerice.getPaymentById(id);
     }
+    @GetMapping(value = "/comsumer/payment/fegin/timeout")
+    public String timeout(){
+        return consumerSerice.timeout();
+    }
 }

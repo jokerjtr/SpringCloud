@@ -18,9 +18,6 @@ mybatis:
   type-aliases-package: com.jtr.entriy
 
 eureka:
-  instance:
-    ip-address: payment8001
-    prefer-ip-address: false
   client:
     register-with-eureka: true
     fetch-registry: true

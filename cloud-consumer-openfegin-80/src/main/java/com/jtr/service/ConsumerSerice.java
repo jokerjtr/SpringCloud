@@ -11,4 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ConsumerSerice {
     @GetMapping(value="/payment/get/{id}")
    public CommonResult getPaymentById(@PathVariable("id") Long id);
+    @GetMapping(value = "/payment/fegin/timeout")
+    public String timeout();
 }

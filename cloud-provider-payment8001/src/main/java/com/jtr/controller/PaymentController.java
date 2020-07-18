@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -50,7 +51,18 @@ public class PaymentController {
     public CommonResult getPort(){
         return new CommonResult(200,"你返回的接口是"+serverport,null);
     }
-
+    //       openfegin 超时demo
+    @GetMapping(value = "/payment/fegin/timeout")
+    public String timeout(){
+        try {
+            // openfegin 默认是1s，如果超过一秒中会报错，不会等待服务响应完成
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            return serverport;
+        }
+    }
 }
 
 
