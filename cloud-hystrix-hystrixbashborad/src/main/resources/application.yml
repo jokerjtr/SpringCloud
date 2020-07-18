@@ -1,0 +1,15 @@
+server:
+  port: 9100
+  #一定要配置服务名否则
+  #registration failed Cannot execute request on any known server
+spring:
+  application:
+    name: hystrixbashborad
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka/,http://127.0.0.1:7002/eureka/
+
+

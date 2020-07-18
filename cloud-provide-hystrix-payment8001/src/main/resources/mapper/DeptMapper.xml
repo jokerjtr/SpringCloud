@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jtr.dao.DeptDao">
+    <select id="selectById" parameterType="java.lang.Integer" resultType="com.jtr.entriy.Dept">
+        select * from dept where deptno=#{deptno}
+    </select>
+    <select id="selectAll" resultType="com.jtr.entriy.Dept">
+        select  * from  dept
+    </select>
+    <insert id="insertDept" parameterType="com.jtr.entriy.Dept" >
+        insert into dept values (#{deptno},#{dname},#{dbsources})
+    </insert>
+    <delete id="deleteDept" parameterType="java.lang.Integer">
+        delete  from dept where deptno=#{deptno}
+    </delete>
+</mapper>

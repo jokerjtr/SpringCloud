@@ -17,6 +17,8 @@
         <module>cloud-provider-payment8002</module>
         <module>cloud-consumerconsul-order80</module>
         <module>cloud-consumer-openfegin-80</module>
+        <module>cloud-provide-hystrix-payment8001</module>
+        <module>cloud-hystrix-hystrixbashborad</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

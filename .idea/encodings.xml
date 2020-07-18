@@ -8,7 +8,9 @@
     <file url="file://$PROJECT_DIR$/cloud-consumerconsul-order80" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-eureka-server-7001" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-eureka-server-7002" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-hystrix-hystrixbashborad" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-paymentconsul-payment8006" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-provide-hystrix-payment8001" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-provider-payment8001" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-provider-payment8002" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
