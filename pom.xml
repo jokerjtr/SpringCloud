@@ -19,6 +19,7 @@
         <module>cloud-consumer-openfegin-80</module>
         <module>cloud-provide-hystrix-payment8001</module>
         <module>cloud-hystrix-hystrixbashborad</module>
+        <module>cloud-gateway-gateway9527</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

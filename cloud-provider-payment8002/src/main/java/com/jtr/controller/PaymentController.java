@@ -51,7 +51,15 @@ public class PaymentController {
     public CommonResult getPort(){
         return new CommonResult(200,"你返回的接口是"+serverport,null);
     }
-
+    /*gateway 测试controller*/
+    @GetMapping("/provide/getway/{id}")
+    public String getWay(@PathVariable("id") Integer id){
+        return String.valueOf(id);
+    }
+    @GetMapping("/provide/all")
+    public String getWayAll(){
+        return "你测试的网关8002";
+    }
 }
 
 

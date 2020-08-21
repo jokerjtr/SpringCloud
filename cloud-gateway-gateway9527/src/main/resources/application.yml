@@ -1,0 +1,42 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: geteway-9527
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启重注册中西动态创建路由的功能，实现动态路由
+      routes:
+       - id: payment_route #路由ID，可以任意命名但要保证唯一
+         #uri: http://localhost:8001 #匹配后提供的路由地址
+         uri: lb://CLOUD-PAYMENT-SERVICE
+         predicates:
+           - Path=/provide/getway/** #断言，匹配相对应的路由地址
+       - id: payment_route2
+         #uri: http://localhost:8001
+         uri: lb://CLOUD-PAYMENT-SERVICE
+         predicates:
+           - Path=/provide/all/**
+           #在什么时间之后
+           #- After=2020-08-21T17:52:28.965+08:00[Asia/Shanghai] # 相当断言的条件，等价于sql语句中的where条件加上and 过滤条件
+           #在时间段内
+           #- Between=2020-08-21T17:52:28.965+08:00[Asia/Shanghai],2020-08-21T18:52:28.965+08:00[Asia/Shanghai]
+           # cookie 的信息为username=joker   curl http://localhost:9527/paovide/all --cookie "username=joker"
+           #- Cookie=username,joker
+           #请求头要有 X-Request-Id属性并且值为整数的正则表达式  curl http://localhost:9527/paovide/all -H "X-Request-Id:111"
+           #- Header=X-Request-Id,\d+
+           #主机地址   curl http://localhost:9527/paovide/all -H "Host:new.com.jtr"
+           #- Host=**.com.jtr
+           #- Method=GET
+           #curl http://localhost:9527/provide/all?username=31
+           #- Query=username,\d+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/

@@ -90,7 +90,15 @@ public class PaymentController {
     public String paymentInfo_TimeoutHandler(Integer id) {
         return "/(ToT)/调用支付接口超时或异常、\t" + "\t当前线程池名字" + Thread.currentThread().getName();
     }
-
+    /*gateway 测试controller*/
+    @GetMapping("/provide/getway/{id}")
+    public String getWay(@PathVariable("id") Integer id){
+        return String.valueOf(id);
+    }
+    @GetMapping("/provide/all")
+    public String getWayAll(){
+        return "你测试的网关8001";
+    }
 }
 
 

@@ -13,6 +13,7 @@
         <module name="cloudconsumerorder80" />
         <module name="cloudeurekaserver7001" />
         <module name="cloudeurekaserver7002" />
+        <module name="cloudgatewaygateway9527" />
         <module name="cloudhystrixhystrixbashborad" />
         <module name="cloudprovidehystrixpayment8001" />
         <module name="cloudproviderpayment8001" />
