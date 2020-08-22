@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date: 2020/8/22:15:28
  */
 @RestController
+// author 客户端监控，只需要发送post请求，手动刷新可以不需要重启服务器来更新
 @RefreshScope //OST curl -X POST "http://localhost:3345/actuator/refresh"
 public class ClientController {
 
