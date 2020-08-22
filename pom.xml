@@ -21,6 +21,7 @@
         <module>cloud-hystrix-hystrixbashborad</module>
         <module>cloud-gateway-gateway9527</module>
         <module>cloud-config-center-3344</module>
+        <module>cloud-config-client-3345</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
